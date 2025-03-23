@@ -1,0 +1,120 @@
+﻿@* 
+    Vista para crear una nueva incidencia
+    Modelo utilizado: SistemaIncidencias.Models.Incidencia 
+*@
+
+@model SistemaIncidencias.Models.Incidencia
+
+@{
+    ViewBag.Title = "Crear Incidencia";
+}
+
+@* Contenedor principal con margen superior *@
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            @* Tarjeta que contiene el formulario *@
+            <div class="card">
+                @* Encabezado de la tarjeta *@
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">➕ Nueva Incidencia</h2>
+                </div>
+                <div class="card-body">
+                    @* Inicio del formulario con token antifalsificación *@
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            @* Columna izquierda del formulario *@
+                            <div class="col-md-6">
+                                @* Campo para seleccionar el usuario que reporta *@
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Usuario que Reporta <span class="text-danger">*</span></label>
+                                    @Html.DropDownListFor(model => model.UsuarioReportaId,
+                                        new SelectList(ViewBag.Usuarios, "Id", "Nombre"),
+                                        "Seleccione el usuario que reporta", new { @class = "form-select" })
+                                    @Html.ValidationMessageFor(model => model.UsuarioReportaId, "", new { @class = "text-danger" })
+                                </div>
+
+                                @* Campo para seleccionar el técnico asignado *@
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Técnico Asignado</label>
+                                    @Html.DropDownListFor(model => model.TecnicoAsignadoId,
+                                        new SelectList(ViewBag.Tecnicos, "Id", "Nombre"),
+                                        "Seleccione un técnico (opcional)", new { @class = "form-select" })
+                                </div>
+
+                                @* Campo para el título de la incidencia *@
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Título <span class="text-danger">*</span></label>
+                                    @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control", placeholder = "Ingrese un título descriptivo" })
+                                    @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+                                </div>
+
+                                @* Campo para la descripción de la incidencia *@
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Descripción <span class="text-danger">*</span></label>
+                                    @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control", rows = "4", placeholder = "Describa detalladamente la incidencia" })
+                                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            @* Columna derecha del formulario *@
+                            <div class="col-md-6">
+                                @* Campo para seleccionar la prioridad *@
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Prioridad <span class="text-danger">*</span></label>
+                                    @Html.DropDownListFor(model => model.Prioridad,
+                                        new SelectList(new[] { "Baja", "Media", "Alta", "Crítica" }),
+                                        "Seleccione una prioridad", new { @class = "form-select" })
+                                    @Html.ValidationMessageFor(model => model.Prioridad, "", new { @class = "text-danger" })
+                                </div>
+
+                                @* Campo para seleccionar el estado *@
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Estado <span class="text-danger">*</span></label>
+                                    @Html.DropDownListFor(model => model.Estado,
+                                        new SelectList(new[] { "Abierto", "En Proceso", "Resuelto", "Cerrado" }),
+                                        "Seleccione un estado", new { @class = "form-select" })
+                                    @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                                </div>
+
+                                @* Campo para el comentario inicial *@
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Comentario Inicial</label>
+                                    <textarea name="comentarioInicial" class="form-control" rows="3" 
+                                              placeholder="Agregue un comentario inicial si lo desea"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        @* Botones de acción del formulario *@
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Guardar
+                            </button>
+                            <a href="@Url.Action("Reporte", "Incidencias")" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Cancelar
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Scripts específicos de la vista *@
+@section Scripts {
+    @* Incluye la validación de jQuery *@
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function() {
+            // Establecer estado por defecto como "Abierto"
+            if (!$("#Estado").val()) {
+                $("#Estado").val("Abierto");
+            }
+        });
+    </script>
+}

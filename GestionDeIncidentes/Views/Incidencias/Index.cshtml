@@ -1,0 +1,171 @@
+﻿@* Modelo para la vista que usa PagedList para paginación *@
+@model PagedList.IPagedList<SistemaIncidencias.Models.Incidencia>
+
+@{
+    @* Título de la página *@
+    ViewBag.Title = "Gestión de Incidencias";
+}
+
+@* Contenedor principal *@
+<div class="container mt-4">
+    @* Encabezado con título y botón de crear *@
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Gestión de Incidencias</h2>
+        @* Botón para crear nueva incidencia *@
+        @Html.ActionLink("Crear Nueva Incidencia", "Create", null, new { @class = "btn btn-primary" })
+    </div>
+
+    @* Tarjeta principal que contiene los filtros y la tabla *@
+    <div class="card">
+        @* Sección de filtros *@
+        <div class="card-header">
+            <form id="filtrosForm" class="row g-3">
+                @* Filtro por estado *@
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        @Html.DropDownList("estado",
+                            new SelectList(new[] { "Abierta", "En Progreso", "Resuelta", "Cerrada" }),
+                            "Todos los estados",
+                            new { @class = "form-control" })
+                    </div>
+                </div>
+                @* Filtro por prioridad *@
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="prioridad">Prioridad</label>
+                        @Html.DropDownList("prioridad",
+                            new SelectList(new[] { "Baja", "Media", "Alta", "Crítica" }),
+                            "Todas las prioridades",
+                            new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                   
+                </div>
+                @* Botón de filtrar *@
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <button type="submit" class="btn btn-primary form-control">Filtrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        @* Cuerpo de la tarjeta con la tabla de incidencias *@
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    @* Encabezados de la tabla *@
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Estado</th>
+                            <th>Prioridad</th>
+                            <th>Técnico</th>
+                            <th>Fecha Creación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    @* Cuerpo de la tabla con los datos *@
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Titulo</td>
+                                @* Celda de estado con clase dinámica *@
+                                <td>
+                                    <span class="estado estado-@item.Estado.ToLower().Replace(" ", "-")">
+                                        @item.Estado
+                                    </span>
+                                </td>
+                                @* Celda de prioridad con clase dinámica *@
+                                <td>
+                                    <span class="prioridad prioridad-@item.Prioridad.ToLower()">
+                                        @item.Prioridad
+                                    </span>
+                                </td>
+                                <td>@(item.TecnicoAsignado?.Nombre ?? "Sin asignar")</td>
+                                <td>@item.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</td>
+                                @* Botones de acción *@
+                                <td>
+                                    <div class="btn-group">
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-info btn-sm" })
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                                        <button class="btn btn-danger btn-sm btn-eliminar" data-id="@item.Id">Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Sección de estilos *@
+@section Styles {
+    <style>
+        @* Estilo para la paginación *@
+        .pagination {
+            margin-bottom: 0;
+        }
+    </style>
+}
+
+@* Sección de scripts *@
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            @* Mantener los valores seleccionados en los filtros *@
+            var estado = '@Request.QueryString["estado"]';
+            var prioridad = '@Request.QueryString["prioridad"]';
+            var tecnico = '@Request.QueryString["tecnico"]';
+
+            if (estado) $('#estado').val(estado);
+            if (prioridad) $('#prioridad').val(prioridad);
+            if (tecnico) $('#tecnico').val(tecnico);
+
+            @* Aplicar filtros al cambiar los valores *@
+            $('#filtrosForm select').change(function() {
+                $('#filtrosForm').submit();
+            });
+        });
+
+        @* Manejo de la eliminación de incidencias *@
+         $(document).ready(function () {
+            $(".btn-eliminar").click(function () {
+                var btn = $(this);
+                var id = btn.data("id");
+
+                @* Confirmación antes de eliminar *@
+                if (!confirm("¿Seguro que deseas eliminar esta incidencia?")) {
+                    return;
+                }
+
+                @* Llamada AJAX para eliminar la incidencia *@
+                $.ajax({
+                    url: '@Url.Action("DeleteConfirmed", "Incidencias")',
+                    type: 'POST',
+                    data: { id: id, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() },
+                    success: function (response) {
+                        if (response.success) {
+                            btn.closest("tr").fadeOut(500, function () {
+                                $(this).remove();
+                            });
+                        } else {
+                            alert("Error: " + response.message);
+                        }
+                    },
+                    error: function () {
+                        alert("Hubo un problema al intentar eliminar la incidencia.");
+                    }
+                });
+            });
+        });
+    </script>
+}

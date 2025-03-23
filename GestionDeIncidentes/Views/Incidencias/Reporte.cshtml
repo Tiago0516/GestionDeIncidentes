@@ -1,0 +1,410 @@
+﻿@* Modelo paginado de incidencias *@
+@model PagedList.IPagedList<SistemaIncidencias.Models.Incidencia>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Reporte de Incidencias";
+
+    @* Función para obtener el color de la prioridad *@
+    string GetPrioridadColor(string prioridad)
+    {
+        if (string.IsNullOrEmpty(prioridad))
+            return "secondary";
+
+        switch (prioridad.ToLower())
+        {
+            case "baja": return "success";
+            case "media": return "warning";
+            case "alta": return "danger";
+            case "crítica": return "dark";
+            default: return "secondary";
+        }
+    }
+
+    @* Función para obtener el color del estado *@
+    string GetEstadoColor(string estado)
+    {
+        if (string.IsNullOrEmpty(estado))
+            return "light";
+
+        switch (estado.ToLower())
+        {
+            case "abierto": return "info";
+            case "en proceso": return "warning";
+            case "resuelto": return "success";
+            case "cerrado": return "secondary";
+            default: return "light";
+        }
+    }
+
+    @* Función para obtener el color de fondo según la prioridad *@
+    string GetPrioridadBgColor(string prioridad)
+    {
+        if (string.IsNullOrEmpty(prioridad))
+            return "#ffffff";
+
+        switch (prioridad.ToLower())
+        {
+            case "baja": return "#d4edda";
+            case "media": return "#fff3cd";
+            case "alta": return "#f8d7da";
+            case "crítica": return "#343a40";
+            default: return "#ffffff";
+        }
+    }
+
+    @* Función para obtener el color de fondo según el estado *@
+    string GetEstadoBgColor(string estado)
+    {
+        if (string.IsNullOrEmpty(estado))
+            return "#ffffff";
+
+        switch (estado.ToLower())
+        {
+            case "abierto": return "#cce5ff";
+            case "en proceso": return "#fff3cd";
+            case "resuelto": return "#d4edda";
+            case "cerrado": return "#e2e3e5";
+            default: return "#ffffff";
+        }
+    }
+}
+
+@* Contenedor principal del reporte *@
+<div class="container-fluid mt-4">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card">
+                @* Encabezado de la tarjeta *@
+                <div class="card-header bg-primary text-white">
+                    <h4><i class="fas fa-bug"></i> Reporte de Incidencias</h4>
+                </div>
+                @* Cuerpo de la tarjeta *@
+                <div class="card-body">
+                    @* Sección de filtros *@
+                    <div class="row mb-3 align-items-end">
+                        @* Filtro de búsqueda *@
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="searchInput"><i class="fas fa-search"></i> Buscar</label>
+                                <input type="text" id="searchInput" class="form-control" placeholder="Buscar por título...">
+                            </div>
+                        </div>
+                        @* Filtro de fecha *@
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="fechaFiltro"><i class="far fa-calendar-alt"></i> Fecha</label>
+                                <input type="date" id="fechaFiltro" class="form-control">
+                            </div>
+                        </div>
+                        @* Filtro de estado *@
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="filtroEstado"><i class="fas fa-tasks"></i> Estado</label>
+                                <select id="filtroEstado" class="form-control">
+                                    <option value="">Todos los estados</option>
+                                    <option value="Pendiente">Pendiente</option>
+                                    <option value="En Proceso">En Proceso</option>
+                                    <option value="Resuelto">Resuelto</option>
+                                    <option value="Cerrado">Cerrado</option>
+                                </select>
+                            </div>
+                        </div>
+                        @* Filtro de prioridad *@
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="filtroPrioridad"><i class="fas fa-exclamation-triangle"></i> Prioridad</label>
+                                <select id="filtroPrioridad" class="form-control">
+                                    <option value="">Todas las prioridades</option>
+                                    <option value="Baja">Baja</option>
+                                    <option value="Media">Media</option>
+                                    <option value="Alta">Alta</option>
+                                    <option value="Crítica">Crítica</option>
+                                </select>
+                            </div>
+                        </div>
+                        @* Filtro de técnico *@
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="filtroTecnico"><i class="fas fa-user-cog"></i> Técnico</label>
+                                <select id="filtroTecnico" class="form-control">
+                                    <option value="">Todos los técnicos</option>
+                                    @if (ViewBag.Tecnicos != null)
+                                    {
+                                        foreach (var tecnico in ViewBag.Tecnicos)
+                                        {
+                                            <option value="@tecnico.Id">@tecnico.Nombre</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        @* Botón para crear nueva incidencia *@
+                        <div class="col-md-1">
+                            <a href="@Url.Action("Create")" class="btn btn-success w-100">
+                                <i class="fas fa-plus"></i> Nueva
+                            </a>
+                        </div>
+                    </div>
+
+                    @* Tabla de incidencias *@
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>CÓDIGO</th>
+                                    <th>TÍTULO</th>
+                                    <th>DESCRIPCIÓN</th>
+                                    <th>PRIORIDAD</th>
+                                    <th>ESTADO</th>
+                                    <th>USUARIO REPORTA</th>
+                                    <th>TÉCNICO ASIGNADO</th>
+                                    <th>FECHA CREACIÓN</th>
+                                    <th>ÚLTIMA ACTUALIZACIÓN</th>
+                                    <th>ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody id="incidenciasTableBody">
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Titulo</td>
+                                        <td>@item.Descripcion</td>
+                                        <td style="background-color: @GetPrioridadBgColor(item.Prioridad)">
+                                            <span class="badge badge-@GetPrioridadColor(item.Prioridad)">
+                                                @item.Prioridad
+                                            </span>
+                                        </td>
+                                        <td style="background-color: @GetEstadoBgColor(item.Estado)">
+                                            <span class="badge badge-@GetEstadoColor(item.Estado)">
+                                                @item.Estado
+                                            </span>
+                                        </td>
+                                        <td>@(item.UsuarioReporta != null ? item.UsuarioReporta.Nombre : "No asignado")</td>
+                                        <td>@(item.TecnicoAsignado != null ? item.TecnicoAsignado.Nombre : "No asignado")</td>
+                                        <td>@item.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</td>
+                                        <td>@(item.FechaActualizacion != default(DateTime) ? item.FechaActualizacion.ToString("dd/MM/yyyy HH:mm") : "-")</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button type="button" class="btn btn-sm btn-danger" onclick="eliminarIncidencia(@item.Id)">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @* Paginación y contador de registros *@
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <small class="text-muted">Mostrando @Model.Count() de @Model.TotalItemCount registros</small>
+                        </div>
+                        <div class="col-6">
+                            <div class="float-end">
+                                @Html.PagedListPager(Model, page => Url.Action("Reporte", new { page }), 
+                                    new PagedListRenderOptions
+                                    {
+                                        LiElementClasses = new string[] { "page-item" },
+                                        LinkToFirstPageFormat = "<<",
+                                        LinkToPreviousPageFormat = "<",
+                                        LinkToNextPageFormat = ">",
+                                        LinkToLastPageFormat = ">>",
+                                        DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+                                        DisplayLinkToLastPage = PagedListDisplayMode.Always,
+                                        DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                                        DisplayLinkToNextPage = PagedListDisplayMode.Always,
+                                        MaximumPageNumbersToDisplay = 5,
+                                        ContainerDivClasses = new string[] { "pagination" },
+                                        UlElementClasses = new string[] { "pagination" }
+                                    })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Token antifalsificación *@
+@Html.AntiForgeryToken()
+
+@* Sección de estilos *@
+@section Styles {
+    @* Hojas de estilo para la paginación y los íconos *@
+    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        @* Estilos para la paginación *@
+        .pagination {
+            display: flex;
+            padding-left: 0;
+            list-style: none;
+            border-radius: 0.25rem;
+            margin: 20px 0;
+        }
+        .pagination > li {
+            margin-right: 5px;
+        }
+        .pagination > li > a {
+            position: relative;
+            display: block;
+            padding: 0.5rem 0.75rem;
+            margin-left: -1px;
+            line-height: 1.25;
+            color: #0d6efd;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            text-decoration: none;
+        }
+        .pagination > li:first-child > a {
+            margin-left: 0;
+            border-top-left-radius: 0.25rem;
+            border-bottom-left-radius: 0.25rem;
+        }
+        .pagination > li:last-child > a {
+            border-top-right-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
+        }
+        .pagination > li > a:hover {
+            z-index: 2;
+            color: #0a58ca;
+            text-decoration: none;
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+        }
+        .pagination > li.active > a {
+            z-index: 3;
+            color: #fff;
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        .pagination > li.disabled > a {
+            color: #6c757d;
+            pointer-events: none;
+            cursor: not-allowed;
+            background-color: #fff;
+            border-color: #dee2e6;
+        }
+        @* Estilos para las insignias y la tabla *@
+        .badge {
+            font-size: 0.9em;
+        }
+        .table th {
+            font-weight: 600;
+        }
+        .btn-group .btn {
+            padding: 0.25rem 0.5rem;
+        }
+    </style>
+}
+
+@* Sección de scripts *@
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            @* Función para aplicar filtros *@
+            function aplicarFiltros() {
+                var busqueda = $('#searchInput').val().toLowerCase();
+                var fecha = $('#fechaFiltro').val();
+                var estado = $('#filtroEstado').val();
+                var prioridad = $('#filtroPrioridad').val();
+                var tecnico = $('#filtroTecnico').val();
+
+                $('#incidenciasTableBody tr').each(function () {
+                    var mostrar = true;
+                    var row = $(this);
+
+                    @* Filtro de búsqueda *@
+                    if (busqueda) {
+                        var titulo = row.find('td:eq(1)').text().toLowerCase();
+                        var descripcion = row.find('td:eq(2)').text().toLowerCase();
+                        if (!titulo.includes(busqueda) && !descripcion.includes(busqueda)) {
+                            mostrar = false;
+                        }
+                    }
+
+                    @* Filtro de fecha *@
+                    if (fecha) {
+                        var fechaCreacion = row.find('td:eq(7)').text().split(' ')[0];
+                        var fechaFormateada = fechaCreacion.split('/').reverse().join('-');
+                        if (fechaFormateada !== fecha) {
+                            mostrar = false;
+                        }
+                    }
+
+                    @* Filtro de estado *@
+                    if (estado && row.find('td:eq(4)').text().trim() !== estado) {
+                        mostrar = false;
+                    }
+
+                    @* Filtro de prioridad *@
+                    if (prioridad && row.find('td:eq(3)').text().trim() !== prioridad) {
+                        mostrar = false;
+                    }
+
+                    @* Filtro de técnico *@
+                    if (tecnico) {
+                        var tecnicoNombre = row.find('td:eq(6)').text().trim();
+                        var tecnicoOption = $('#filtroTecnico option[value="' + tecnico + '"]').text();
+                        if (tecnicoNombre !== tecnicoOption) {
+                            mostrar = false;
+                        }
+                    }
+
+                    row.toggle(mostrar);
+                });
+
+                actualizarContador();
+            }
+
+            @* Función para actualizar el contador de registros mostrados *@
+            function actualizarContador() {
+                var registrosVisibles = $('#incidenciasTableBody tr:visible').length;
+                $('.text-muted').text('Mostrando ' + registrosVisibles + ' de ' + $('#incidenciasTableBody tr').length + ' registros');
+            }
+
+            @* Eventos para los filtros *@
+            $('#searchInput, #fechaFiltro, #filtroEstado, #filtroPrioridad, #filtroTecnico').on('change keyup', function() {
+                aplicarFiltros();
+            });
+
+            @* Inicializar la fecha con la fecha actual *@
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
+            $('#fechaFiltro').val(today);
+
+            @* Aplicar filtros iniciales *@
+            aplicarFiltros();
+        });
+
+        @* Función para eliminar incidencia *@
+        function eliminarIncidencia(id) {
+            if (confirm('¿Está seguro que desea eliminar esta incidencia?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete")/' + id,
+                    type: 'POST',
+                    success: function (result) {
+                        if (result.success) {
+                            location.reload();
+                        } else {
+                            alert('Error al eliminar la incidencia');
+                        }
+                    },
+                    error: function () {
+                        alert('Error al eliminar la incidencia');
+                    }
+                });
+            }
+        }
+    </script>
+}

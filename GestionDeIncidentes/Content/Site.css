@@ -1,0 +1,113 @@
+﻿/* 
+ * Establece el padding para evitar que el contenido toque los bordes
+ * Agrega margen superior y padding lateral
+ */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* 
+ * Sobreescribe el comportamiento predeterminado de bootstrap donde las listas
+ * de descripción horizontales truncarán términos demasiado largos
+ * para ajustarse en la columna izquierda
+ */
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/*
+ * Establece el ancho en los elementos de entrada del formulario
+ * ya que son 100% de ancho por defecto
+ */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*
+ * Estilos para las etiquetas de prioridad
+ * Define el aspecto visual común para todas las prioridades
+ */
+.prioridad {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/*
+ * Estilo específico para prioridad alta
+ * Usa rojo para indicar urgencia
+ */
+.prioridad-alta {
+    background-color: #dc3545;
+    color: white;
+}
+
+/*
+ * Estilo específico para prioridad media
+ * Usa amarillo para indicar atención moderada
+ */
+.prioridad-media {
+    background-color: #ffc107;
+    color: #000;
+}
+
+/*
+ * Estilo específico para prioridad baja
+ * Usa verde para indicar baja urgencia
+ */
+.prioridad-baja {
+    background-color: #28a745;
+    color: white;
+}
+
+/*
+ * Estilos para las etiquetas de estado
+ * Define el aspecto visual común para todos los estados
+ */
+.estado {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/*
+ * Estilo para estado nuevo
+ * Usa azul para indicar inicio
+ */
+.estado-nuevo {
+    background-color: #007bff;
+    color: white;
+}
+
+/*
+ * Estilo para estado en proceso
+ * Usa púrpura para indicar progreso
+ */
+.estado-en-proceso {
+    background-color: #6f42c1;
+    color: white;
+}
+
+/*
+ * Estilo para estado resuelto
+ * Usa verde para indicar finalización
+ */
+.estado-resuelto {
+    background-color: #28a745;
+    color: white;
+}
+
+/*
+ * Estilo para estado crítico
+ * Usa gris oscuro para indicar gravedad
+ */
+.estado-critica {
+    background-color: #343a40;
+    color: white;
+}

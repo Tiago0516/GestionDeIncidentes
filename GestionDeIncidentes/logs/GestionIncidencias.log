@@ -1,0 +1,264 @@
+2025-03-22 20:25:05,743 [10] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:25:42,327 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:25:48,641 [5] INFO  SistemaIncidencias.Controllers.IncidenciasController - Actualizando incidencia 2
+2025-03-22 20:25:48,641 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:25:48,650 [5] DEBUG SistemaIncidencias.Controllers.IncidenciasController - Agregando nuevo comentario a la incidencia 2: testtttt
+2025-03-22 20:25:48,675 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Actualizando incidencia ID 2: Error en la aplicación
+2025-03-22 20:25:48,748 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:25:49,104 [5] INFO  SistemaIncidencias.Controllers.IncidenciasController - Incidencia 2 actualizada exitosamente
+2025-03-22 20:25:49,132 [13] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:25:49,133 [13] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:26:34,602 [13] ERROR SistemaIncidencias.Controllers.IncidenciasController - Error no manejado en Index: Referencia a objeto no establecida como instancia de un objeto.
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en ASP._Page_Views_Incidencias_Index_cshtml.Execute() en C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Index.cshtml:línea 65
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   en System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   en System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)
+2025-03-22 20:28:52,620 [5] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:28:52,637 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:29:22,434 [5] ERROR SistemaIncidencias.Controllers.IncidenciasController - Error no manejado en Index: Referencia a objeto no establecida como instancia de un objeto.
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en ASP._Page_Views_Incidencias_Index_cshtml.Execute() en C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Index.cshtml:línea 65
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   en System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   en System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)
+2025-03-22 20:29:25,505 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:29:28,200 [5] ERROR SistemaIncidencias.Controllers.IncidenciasController - Error no manejado en Reporte: Referencia a objeto no establecida como instancia de un objeto.
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en ASP._Page_Views_Incidencias_Reporte_cshtml.<Execute>g__GetEstadoBgColor|3_3(String estado) en C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml:línea 45
+   en ASP._Page_Views_Incidencias_Reporte_cshtml.Execute() en C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml:línea 148
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   en System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   en System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)
+2025-03-22 20:29:32,281 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:32:48,301 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:32:50,767 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:33:09,814 [5] ERROR SistemaIncidencias.Controllers.IncidenciasController - Error no manejado en Reporte: Referencia a objeto no establecida como instancia de un objeto.
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en ASP._Page_Views_Incidencias_Reporte_cshtml.<Execute>g__GetEstadoBgColor|3_3(String estado) en C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml:línea 45
+   en ASP._Page_Views_Incidencias_Reporte_cshtml.Execute() en C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml:línea 148
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   en System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   en System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)
+2025-03-22 20:33:09,814 [6] ERROR SistemaIncidencias.Controllers.IncidenciasController - Error no manejado en Reporte: Referencia a objeto no establecida como instancia de un objeto.
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en ASP._Page_Views_Incidencias_Reporte_cshtml.<Execute>g__GetEstadoBgColor|3_3(String estado) en C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml:línea 45
+   en ASP._Page_Views_Incidencias_Reporte_cshtml.Execute() en C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml:línea 148
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   en System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   en System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)
+2025-03-22 20:33:23,364 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:35:32,856 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:35:32,857 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:35:44,055 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de edición de incidencia 2
+2025-03-22 20:35:44,057 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:35:49,886 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:35:49,910 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Actualizando incidencia ID 2: Error en la aplicación
+2025-03-22 20:35:49,960 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:35:50,265 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:35:50,265 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:36:03,518 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:36:10,076 [9] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de edición de incidencia 2
+2025-03-22 20:36:10,077 [9] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:36:13,071 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:36:13,081 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Actualizando incidencia ID 2: Error en la aplicación
+2025-03-22 20:36:13,081 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:36:13,095 [8] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:36:13,095 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:36:16,941 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Consultando detalles de la incidencia 2
+2025-03-22 20:36:16,942 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:36:22,681 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de edición de incidencia 2
+2025-03-22 20:36:22,681 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:36:25,284 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:36:26,830 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de edición de incidencia 2
+2025-03-22 20:36:26,830 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:36:29,575 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:36:29,586 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Actualizando incidencia ID 2: Error en la aplicación
+2025-03-22 20:36:29,587 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:36:29,599 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:36:29,599 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:36:35,073 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de creación de incidencia
+2025-03-22 20:36:47,773 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Creando nueva incidencia: tes34
+2025-03-22 20:36:47,773 [6] DEBUG SistemaIncidencias.Controllers.IncidenciasController - Agregando comentario inicial a la incidencia: fdsfdsfds
+2025-03-22 20:36:47,773 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Agregando nueva incidencia: tes34
+2025-03-22 20:36:47,806 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:36:47,891 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Incidencia creada exitosamente con ID: 10
+2025-03-22 20:36:47,900 [8] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:36:47,900 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:36:54,246 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:36:59,133 [8] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de creación de incidencia
+2025-03-22 20:37:00,472 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:37:25,457 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de edición de incidencia 2
+2025-03-22 20:37:25,457 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:37:27,210 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:37:27,217 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Actualizando incidencia ID 2: Error en la aplicación
+2025-03-22 20:37:27,218 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:37:27,231 [8] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:37:27,231 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:37:58,470 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:40:09,407 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:40:12,869 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:40:15,505 [5] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de edición de incidencia 2
+2025-03-22 20:40:15,507 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:40:19,630 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo incidencia con ID: 2
+2025-03-22 20:40:19,645 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Actualizando incidencia ID 2: Error en la aplicación
+2025-03-22 20:40:19,713 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:40:20,054 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:40:24,666 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de creación de incidencia
+2025-03-22 20:40:33,467 [5] INFO  SistemaIncidencias.Controllers.IncidenciasController - Creando nueva incidencia: asfad
+2025-03-22 20:40:33,467 [5] DEBUG SistemaIncidencias.Controllers.IncidenciasController - Agregando comentario inicial a la incidencia: fadsfadsf
+2025-03-22 20:40:33,468 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Agregando nueva incidencia: asfad
+2025-03-22 20:40:33,484 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:40:33,517 [5] INFO  SistemaIncidencias.Controllers.IncidenciasController - Incidencia creada exitosamente con ID: 11
+2025-03-22 20:40:33,535 [5] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:40:33,535 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:40:42,667 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de creación de incidencia
+2025-03-22 20:40:51,745 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Creando nueva incidencia: asdasd34
+2025-03-22 20:40:51,745 [6] DEBUG SistemaIncidencias.Controllers.IncidenciasController - Agregando comentario inicial a la incidencia: dsfdsfdsgfd
+2025-03-22 20:40:51,745 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Agregando nueva incidencia: asdasd34
+2025-03-22 20:40:51,756 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:40:51,788 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Incidencia creada exitosamente con ID: 12
+2025-03-22 20:40:51,794 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:40:51,794 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:40:55,086 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:40:56,408 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:40:56,408 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:40:59,123 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:41:05,637 [5] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de creación de incidencia
+2025-03-22 20:41:12,864 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Creando nueva incidencia: dfsgdfsgs
+2025-03-22 20:41:12,864 [7] DEBUG SistemaIncidencias.Controllers.IncidenciasController - Agregando comentario inicial a la incidencia: sdgdfsgdfsg
+2025-03-22 20:41:12,864 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Agregando nueva incidencia: dfsgdfsgs
+2025-03-22 20:41:12,866 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:41:12,879 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Incidencia creada exitosamente con ID: 13
+2025-03-22 20:41:12,884 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:41:12,884 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:41:18,649 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:41:25,373 [5] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al listado de incidencias
+2025-03-22 20:41:25,373 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:43:09,795 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:45:20,177 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:45:22,050 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:45:25,419 [8] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de creación de incidencia
+2025-03-22 20:45:35,049 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Creando nueva incidencia: asdasdase43432
+2025-03-22 20:45:35,049 [6] DEBUG SistemaIncidencias.Controllers.IncidenciasController - Agregando comentario inicial a la incidencia: asdsadas
+2025-03-22 20:45:35,050 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Agregando nueva incidencia: asdasdase43432
+2025-03-22 20:45:35,088 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Guardando cambios en la base de datos
+2025-03-22 20:45:35,387 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Incidencia creada exitosamente con ID: 14
+2025-03-22 20:45:35,407 [9] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:45:38,414 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al formulario de creación de incidencia
+2025-03-22 20:45:40,676 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:46:51,480 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:49:43,330 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:49:46,436 [5] ERROR SistemaIncidencias.Controllers.IncidenciasController - Error no manejado en Reporte: C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml(197): error CS0117: 'PagedListRenderOptions' does not contain a definition for 'PageClasses'
+System.Web.HttpCompileException (0x80004005): C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml(197): error CS0117: 'PagedListRenderOptions' does not contain a definition for 'PageClasses'
+   en System.Web.Compilation.AssemblyBuilder.Compile()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   en System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)
+2025-03-22 20:50:02,796 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:50:03,426 [5] ERROR SistemaIncidencias.Controllers.IncidenciasController - Error no manejado en Reporte: C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml(197): error CS0117: 'PagedListRenderOptions' does not contain a definition for 'PageClasses'
+System.Web.HttpCompileException (0x80004005): C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml(197): error CS0117: 'PagedListRenderOptions' does not contain a definition for 'PageClasses'
+   en System.Web.Compilation.AssemblyBuilder.Compile()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   en System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)
+2025-03-22 20:52:27,947 [5] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:52:31,631 [5] ERROR SistemaIncidencias.Controllers.IncidenciasController - Error no manejado en Reporte: C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml(197): error CS0117: 'PagedListRenderOptions' does not contain a definition for 'PageClasses'
+System.Web.HttpCompileException (0x80004005): C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml(197): error CS0117: 'PagedListRenderOptions' does not contain a definition for 'PageClasses'
+   en System.Web.Compilation.AssemblyBuilder.Compile()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   en System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)
+2025-03-22 20:55:00,508 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al reporte de incidencias
+2025-03-22 20:55:04,633 [6] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:55:05,007 [6] INFO  SistemaIncidencias.Controllers.IncidenciasController - Mostrando página 1 de incidencias, 5 registros
+2025-03-22 20:55:07,012 [6] ERROR SistemaIncidencias.Controllers.IncidenciasController - Error no manejado en Reporte: C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml(197): error CS0117: 'PagedListRenderOptions' does not contain a definition for 'PageClasses'
+System.Web.HttpCompileException (0x80004005): C:\Users\Manuela\source\repos\GestionDeIncidentes\GestionDeIncidentes\Views\Incidencias\Reporte.cshtml(197): error CS0117: 'PagedListRenderOptions' does not contain a definition for 'PageClasses'
+   en System.Web.Compilation.AssemblyBuilder.Compile()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   en System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)
+2025-03-22 20:56:32,877 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al reporte de incidencias
+2025-03-22 20:56:33,006 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:56:33,034 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Mostrando página 1 de incidencias, 5 registros
+2025-03-22 20:56:36,587 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al reporte de incidencias
+2025-03-22 20:56:36,590 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:56:36,602 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Mostrando página 2 de incidencias, 3 registros
+2025-03-22 20:56:38,031 [9] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al reporte de incidencias
+2025-03-22 20:56:38,032 [9] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:56:38,037 [9] INFO  SistemaIncidencias.Controllers.IncidenciasController - Mostrando página 1 de incidencias, 5 registros
+2025-03-22 20:57:38,049 [8] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al reporte de incidencias
+2025-03-22 20:57:38,064 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:57:38,098 [8] INFO  SistemaIncidencias.Controllers.IncidenciasController - Mostrando página 1 de incidencias, 5 registros
+2025-03-22 20:57:40,037 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al reporte de incidencias
+2025-03-22 20:57:40,045 [7] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:57:40,055 [7] INFO  SistemaIncidencias.Controllers.IncidenciasController - Mostrando página 2 de incidencias, 3 registros
+2025-03-22 20:57:42,525 [8] INFO  SistemaIncidencias.Controllers.IncidenciasController - Accediendo al reporte de incidencias
+2025-03-22 20:57:42,527 [8] INFO  SistemaIncidencias.Repositories.IncidenciaRepository - Obteniendo todas las incidencias
+2025-03-22 20:57:42,537 [8] INFO  SistemaIncidencias.Controllers.IncidenciasController - Mostrando página 1 de incidencias, 5 registros

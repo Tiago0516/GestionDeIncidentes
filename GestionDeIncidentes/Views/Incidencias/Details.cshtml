@@ -1,0 +1,151 @@
+﻿@model SistemaIncidencias.Models.Incidencia
+
+@{
+    ViewBag.Title = "Detalles de Incidencia";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>@Model.Titulo</h2>
+            <span class="badge badge-@(Model.Estado.ToLower())">@Model.Estado</span>
+            <span class="badge badge-@(Model.Prioridad.ToLower())">@Model.Prioridad</span>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5>Descripción</h5>
+                    <p>@Model.Descripcion</p>
+                    
+                    <h5>Información Adicional</h5>
+                    <dl class="row">
+                        <dt class="col-sm-4">Fecha de Creación:</dt>
+                        <dd class="col-sm-8">@Model.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</dd>
+
+                        <dt class="col-sm-4">Última Actualización:</dt>
+                        <dd class="col-sm-8">@Model.FechaActualizacion.ToString("dd/MM/yyyy HH:mm")</dd>
+
+                        <dt class="col-sm-4">Reportado por:</dt>
+                        <dd class="col-sm-8">@Model.UsuarioReporta.Nombre</dd>
+
+                        <dt class="col-sm-4">Técnico Asignado:</dt>
+                        <dd class="col-sm-8">@(Model.TecnicoAsignado?.Nombre ?? "Sin asignar")</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Comentarios</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="comentarios-lista" class="mb-4">
+                                <!-- Los comentarios se cargarán aquí via AJAX -->
+                            </div>
+                            
+                            <form id="form-comentario" class="mt-3">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" id="incidenciaId" value="@Model.Id" />
+                                <div class="form-group">
+                                    <textarea id="comentario-contenido" class="form-control" rows="3" placeholder="Escribe un comentario..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2">Agregar Comentario</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .badge {
+            font-size: 1em;
+            margin-left: 10px;
+        }
+        .badge-abierta { background-color: #17a2b8; }
+        .badge-enprogreso { background-color: #ffc107; }
+        .badge-resuelta { background-color: #28a745; }
+        .badge-cerrada { background-color: #6c757d; }
+        
+        .badge-baja { background-color: #28a745; }
+        .badge-media { background-color: #ffc107; }
+        .badge-alta { background-color: #dc3545; }
+        .badge-critica { background-color: #dc3545; }
+        
+        .comentario {
+            border-bottom: 1px solid #dee2e6;
+            padding: 10px 0;
+        }
+        .comentario:last-child {
+            border-bottom: none;
+        }
+        .comentario-meta {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        function cargarComentarios() {
+            $.get('@Url.Action("ObtenerComentarios")', { incidenciaId: @Model.Id }, function(response) {
+                if (response.success) {
+                    var comentariosHtml = '';
+                    response.comentarios.forEach(function(comentario) {
+                        comentariosHtml += `
+                            <div class="comentario">
+                                <p>${comentario.contenido}</p>
+                                <div class="comentario-meta">
+                                    Por ${comentario.usuario} - ${comentario.fechaCreacion}
+                                </div>
+                            </div>`;
+                    });
+                    $('#comentarios-lista').html(comentariosHtml);
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            cargarComentarios();
+
+            $('#form-comentario').on('submit', function(e) {
+                e.preventDefault();
+                var contenido = $('#comentario-contenido').val();
+                if (!contenido.trim()) return;
+
+                $.ajax({
+                    url: '@Url.Action("AgregarComentario")',
+                    type: 'POST',
+                    data: {
+                        incidenciaId: @Model.Id,
+                        contenido: contenido,
+                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $('#comentario-contenido').val('');
+                            cargarComentarios();
+                        } else {
+                            alert('Error al agregar el comentario: ' + response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Error al procesar la solicitud');
+                    }
+                });
+            });
+        });
+    </script>
+}

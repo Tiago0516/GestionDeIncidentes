@@ -1,0 +1,141 @@
+﻿@* Modelo utilizado para la vista de edición de incidencias *@
+@model SistemaIncidencias.Models.Incidencia
+
+@{
+    @* Título de la página *@
+    ViewBag.Title = "Editar Incidencia";
+}
+
+@* Encabezado principal de la página *@
+<h2>✏️ Editar Estado de Incidencia</h2>
+
+@* Formulario para editar la incidencia *@
+@using (Html.BeginForm("Edit", "Incidencias", FormMethod.Post))
+{
+    @* Token anti-falsificación para seguridad *@
+    @Html.AntiForgeryToken()
+    @* Campos ocultos que mantienen información que no debe modificarse *@
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.FechaCreacion)
+    @Html.HiddenFor(model => model.UsuarioReportaId)
+    @Html.HiddenFor(model => model.TecnicoAsignadoId)
+    @Html.HiddenFor(model => model.Titulo)
+    @Html.HiddenFor(model => model.Descripcion)
+
+    @* Tarjeta con la información principal de la incidencia *@
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">Información de la Incidencia</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @* Columna izquierda con información básica *@
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Título</label>
+                        @* Campo de título de solo lectura *@
+                        <input type="text" class="form-control" value="@Model.Titulo" readonly />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        @* Área de texto de descripción de solo lectura *@
+                        <textarea class="form-control" readonly>@Model.Descripcion</textarea>
+                    </div>
+                </div>
+                @* Columna derecha con controles de estado *@
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Prioridad</label>
+                        @* Selector de prioridad *@
+                        @Html.DropDownList("Prioridad", new SelectList(new[] { "Baja", "Media", "Alta", "Crítica" }, Model.Prioridad), new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Estado</label>
+                        @* Selector de estado *@
+                        @Html.DropDownList("Estado", new SelectList(new[] { "Abierto", "En Proceso", "Resuelto", "Cerrado" }, Model.Estado), new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Tarjeta para agregar nuevos comentarios *@
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">Nuevo Comentario</h5>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                @* Área de texto para nuevo comentario *@
+                <textarea id="nuevoComentario" name="nuevoComentario" class="form-control" rows="3" 
+                          placeholder="Escribe un nuevo comentario..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    @* Tarjeta que muestra el historial de comentarios *@
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Historial de Comentarios</h5>
+        </div>
+        <div class="card-body">
+            <div class="comentarios-historial">
+                @* Iteración sobre los comentarios existentes *@
+                @if (Model.Comentarios != null)
+                {
+                    foreach (var comentario in Model.Comentarios.OrderByDescending(c => c.Fecha))
+                    {
+                        <div class="comentario">
+                            <small class="text-muted">@comentario.Fecha.ToString("dd/MM/yyyy HH:mm")</small>
+                            <p class="mb-0">@comentario.Texto</p>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    @* Botones de acción del formulario *@
+    <div class="form-actions mt-4">
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href="@Url.Action("Reporte", "Incidencias")" class="btn btn-secondary">Cancelar</a>
+    </div>
+}
+
+@* Estilos CSS específicos para la vista *@
+<style>
+    /* Estilo para las tarjetas */
+    .card {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        border: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    /* Estilo para el encabezado de las tarjetas */
+    .card-header {
+        background-color: #f8f9fa;
+        padding: 0.75rem 1.25rem;
+    }
+    /* Estilo para el contenedor de comentarios */
+    .comentarios-historial {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    /* Estilo para cada comentario individual */
+    .comentario {
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+    }
+    /* Elimina el borde del último comentario */
+    .comentario:last-child {
+        border-bottom: none;
+    }
+    /* Espaciado para grupos de formulario */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    /* Estilo para campos de solo lectura */
+    .form-control[readonly] {
+        background-color: #f8f9fa;
+    }
+</style>
