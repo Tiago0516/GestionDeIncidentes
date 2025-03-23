@@ -3,40 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|c:\\users\\manuela\\source\\repos\\gestiondeincidentes\\gestiondeincidentes\\views\\incidencias\\reporte.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|solutionrelative:gestiondeincidentes\\views\\incidencias\\reporte.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|c:\\users\\manuela\\source\\repos\\gestiondeincidentes\\gestiondeincidentes\\repositories\\incidenciarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|solutionrelative:gestiondeincidentes\\repositories\\incidenciarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|c:\\users\\manuela\\source\\repos\\gestiondeincidentes\\gestiondeincidentes\\controllers\\incidenciascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|solutionrelative:gestiondeincidentes\\controllers\\incidenciascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|c:\\users\\manuela\\source\\repos\\gestiondeincidentes\\gestiondeincidentes\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|solutionrelative:gestiondeincidentes\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|c:\\users\\manuela\\source\\repos\\gestiondeincidentes\\gestiondeincidentes\\migrations\\202503230035171_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|solutionrelative:gestiondeincidentes\\migrations\\202503230035171_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|c:\\users\\manuela\\source\\repos\\gestiondeincidentes\\gestiondeincidentes\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|solutionrelative:gestiondeincidentes\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|c:\\users\\manuela\\source\\repos\\gestiondeincidentes\\gestiondeincidentes\\models\\incidencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|solutionrelative:gestiondeincidentes\\models\\incidencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|c:\\users\\manuela\\source\\repos\\gestiondeincidentes\\gestiondeincidentes\\views\\incidencias\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|solutionrelative:gestiondeincidentes\\views\\incidencias\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|c:\\users\\manuela\\source\\repos\\gestiondeincidentes\\gestiondeincidentes\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3D791B9A-12C4-4D2E-9327-2C24CA949F7E}|GestionDeIncidentes\\SistemaIncidencias.csproj|solutionrelative:gestiondeincidentes\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,123 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Global.asax.cs",
-              "DocumentMoniker": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Global.asax.cs",
-              "RelativeDocumentMoniker": "GestionDeIncidentes\\Global.asax.cs",
-              "ToolTip": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Global.asax.cs",
-              "RelativeToolTip": "GestionDeIncidentes\\Global.asax.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T01:14:38.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "202503230035171_InitialCreate.cs",
-              "DocumentMoniker": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Migrations\\202503230035171_InitialCreate.cs",
-              "RelativeDocumentMoniker": "GestionDeIncidentes\\Migrations\\202503230035171_InitialCreate.cs",
-              "ToolTip": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Migrations\\202503230035171_InitialCreate.cs",
-              "RelativeToolTip": "GestionDeIncidentes\\Migrations\\202503230035171_InitialCreate.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAA1wCAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T00:35:23.775Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "IncidenciasController.cs",
               "DocumentMoniker": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Controllers\\IncidenciasController.cs",
               "RelativeDocumentMoniker": "GestionDeIncidentes\\Controllers\\IncidenciasController.cs",
               "ToolTip": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Controllers\\IncidenciasController.cs",
               "RelativeToolTip": "GestionDeIncidentes\\Controllers\\IncidenciasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAANoAAAAAAAAAAAAtwOwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T22:37:06.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Incidencia.cs",
-              "DocumentMoniker": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Models\\Incidencia.cs",
-              "RelativeDocumentMoniker": "GestionDeIncidentes\\Models\\Incidencia.cs",
-              "ToolTip": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Models\\Incidencia.cs",
-              "RelativeToolTip": "GestionDeIncidentes\\Models\\Incidencia.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAswE4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T22:30:00.322Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IncidenciaRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Repositories\\IncidenciaRepository.cs",
-              "RelativeDocumentMoniker": "GestionDeIncidentes\\Repositories\\IncidenciaRepository.cs",
-              "ToolTip": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Repositories\\IncidenciaRepository.cs",
-              "RelativeToolTip": "GestionDeIncidentes\\Repositories\\IncidenciaRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T23:29:13.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Views\\Incidencias\\Delete.cshtml",
-              "RelativeDocumentMoniker": "GestionDeIncidentes\\Views\\Incidencias\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Views\\Incidencias\\Delete.cshtml",
-              "RelativeToolTip": "GestionDeIncidentes\\Views\\Incidencias\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-22T23:19:45.813Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Reporte.cshtml",
-              "DocumentMoniker": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Views\\Incidencias\\Reporte.cshtml",
-              "RelativeDocumentMoniker": "GestionDeIncidentes\\Views\\Incidencias\\Reporte.cshtml",
-              "ToolTip": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Views\\Incidencias\\Reporte.cshtml",
-              "RelativeToolTip": "GestionDeIncidentes\\Views\\Incidencias\\Reporte.cshtml",
-              "ViewState": "AgIAACUAAAAAAAAAAAAEwCgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-22T21:22:00.054Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "GestionDeIncidentes\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "GestionDeIncidentes\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-22T23:43:31.853Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Configuration.cs",
-              "DocumentMoniker": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Migrations\\Configuration.cs",
-              "RelativeDocumentMoniker": "GestionDeIncidentes\\Migrations\\Configuration.cs",
-              "ToolTip": "C:\\Users\\Manuela\\source\\repos\\GestionDeIncidentes\\GestionDeIncidentes\\Migrations\\Configuration.cs",
-              "RelativeToolTip": "GestionDeIncidentes\\Migrations\\Configuration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T00:35:09.004Z",
+              "WhenOpened": "2025-03-23T14:45:47.153Z",
               "EditorCaption": ""
             }
           ]

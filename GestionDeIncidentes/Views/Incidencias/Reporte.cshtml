@@ -83,15 +83,8 @@
                 <div class="card-body">
                     @* Sección de filtros *@
                     <div class="row mb-3 align-items-end">
-                        @* Filtro de búsqueda *@
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="searchInput"><i class="fas fa-search"></i> Buscar</label>
-                                <input type="text" id="searchInput" class="form-control" placeholder="Buscar por título...">
-                            </div>
-                        </div>
                         @* Filtro de fecha *@
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label for="fechaFiltro"><i class="far fa-calendar-alt"></i> Fecha</label>
                                 <input type="date" id="fechaFiltro" class="form-control">
@@ -139,11 +132,14 @@
                                 </select>
                             </div>
                         </div>
-                        @* Botón para crear nueva incidencia *@
-                        <div class="col-md-1">
-                            <a href="@Url.Action("Create")" class="btn btn-success w-100">
+                        @* Botones de acción *@
+                        <div class="col-md-1 d-flex flex-column">
+                            <a href="@Url.Action("Create")" class="btn btn-success mb-2">
                                 <i class="fas fa-plus"></i> Nueva
                             </a>
+                            <button type="button" class="btn btn-secondary" id="limpiarFiltros">
+                                <i class="fas fa-filter-circle-xmark"></i> Limpiar
+                            </button>
                         </div>
                     </div>
 
@@ -207,7 +203,14 @@
                         </div>
                         <div class="col-6">
                             <div class="float-end">
-                                @Html.PagedListPager(Model, page => Url.Action("Reporte", new { page }), 
+                                @Html.PagedListPager(Model, page => Url.Action("Reporte", new { 
+                                    page,
+                                    busqueda = Request.QueryString["busqueda"],
+                                    fecha = Request.QueryString["fecha"],
+                                    estado = Request.QueryString["estado"],
+                                    prioridad = Request.QueryString["prioridad"],
+                                    tecnico = Request.QueryString["tecnico"]
+                                }), 
                                     new PagedListRenderOptions
                                     {
                                         LiElementClasses = new string[] { "page-item" },
@@ -309,102 +312,125 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            @* Función para aplicar filtros *@
-            function aplicarFiltros() {
-                var busqueda = $('#searchInput').val().toLowerCase();
+            var isInitialLoad = true;
+
+            // Función para formatear fecha para el input date
+            function formatDateForInput(dateString) {
+                if (!dateString) return '';
+                try {
+                    // Si la fecha viene en formato dd/MM/yyyy HH:mm
+                    if (dateString.includes('/')) {
+                        var parts = dateString.split(' ')[0].split('/');
+                        if (parts.length === 3) {
+                            return `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+                        }
+                    }
+                    
+                    // Si ya está en formato yyyy-MM-dd
+                    if (dateString.match(/^\d{4}-\d{2}-\d{2}$/)) {
+                        return dateString;
+                    }
+
+                    // Último intento: parsear como fecha
+                    var date = new Date(dateString);
+                    if (!isNaN(date.getTime())) {
+                        return date.toISOString().split('T')[0];
+                    }
+                } catch (e) {
+                    console.error('Error al formatear la fecha:', e, 'para el string:', dateString);
+                }
+                return '';
+            }
+
+            // Función para aplicar filtros
+            function aplicarFiltros(forzarRecarga = false) {
+                if (isInitialLoad && !forzarRecarga) {
+                    isInitialLoad = false;
+                    return;
+                }
+
                 var fecha = $('#fechaFiltro').val();
                 var estado = $('#filtroEstado').val();
                 var prioridad = $('#filtroPrioridad').val();
                 var tecnico = $('#filtroTecnico').val();
 
-                $('#incidenciasTableBody tr').each(function () {
-                    var mostrar = true;
-                    var row = $(this);
+                console.log('Fecha seleccionada:', fecha); // Debug
 
-                    @* Filtro de búsqueda *@
-                    if (busqueda) {
-                        var titulo = row.find('td:eq(1)').text().toLowerCase();
-                        var descripcion = row.find('td:eq(2)').text().toLowerCase();
-                        if (!titulo.includes(busqueda) && !descripcion.includes(busqueda)) {
-                            mostrar = false;
-                        }
-                    }
+                var url = '@Url.Action("Reporte")' + '?page=1';
+                if (fecha) url += '&fecha=' + encodeURIComponent(fecha);
+                if (estado) url += '&estado=' + encodeURIComponent(estado);
+                if (prioridad) url += '&prioridad=' + encodeURIComponent(prioridad);
+                if (tecnico) url += '&tecnico=' + encodeURIComponent(tecnico);
 
-                    @* Filtro de fecha *@
-                    if (fecha) {
-                        var fechaCreacion = row.find('td:eq(7)').text().split(' ')[0];
-                        var fechaFormateada = fechaCreacion.split('/').reverse().join('-');
-                        if (fechaFormateada !== fecha) {
-                            mostrar = false;
-                        }
-                    }
-
-                    @* Filtro de estado *@
-                    if (estado && row.find('td:eq(4)').text().trim() !== estado) {
-                        mostrar = false;
-                    }
-
-                    @* Filtro de prioridad *@
-                    if (prioridad && row.find('td:eq(3)').text().trim() !== prioridad) {
-                        mostrar = false;
-                    }
-
-                    @* Filtro de técnico *@
-                    if (tecnico) {
-                        var tecnicoNombre = row.find('td:eq(6)').text().trim();
-                        var tecnicoOption = $('#filtroTecnico option[value="' + tecnico + '"]').text();
-                        if (tecnicoNombre !== tecnicoOption) {
-                            mostrar = false;
-                        }
-                    }
-
-                    row.toggle(mostrar);
-                });
-
-                actualizarContador();
+                console.log('URL de filtros:', url); // Debug
+                window.location.href = url;
             }
 
-            @* Función para actualizar el contador de registros mostrados *@
-            function actualizarContador() {
-                var registrosVisibles = $('#incidenciasTableBody tr:visible').length;
-                $('.text-muted').text('Mostrando ' + registrosVisibles + ' de ' + $('#incidenciasTableBody tr').length + ' registros');
+            // Inicializar valores de los filtros
+            function inicializarFiltros() {
+                var urlParams = new URLSearchParams(window.location.search);
+                
+                var fechaUrl = urlParams.get('fecha');
+                if (fechaUrl) {
+                    var fechaFormateada = formatDateForInput(fechaUrl);
+                    console.log('Fecha URL:', fechaUrl, 'Fecha formateada:', fechaFormateada); // Debug
+                    $('#fechaFiltro').val(fechaFormateada);
+                }
+                
+                $('#filtroEstado').val(urlParams.get('estado') || '');
+                $('#filtroPrioridad').val(urlParams.get('prioridad') || '');
+                $('#filtroTecnico').val(urlParams.get('tecnico') || '');
             }
 
-            @* Eventos para los filtros *@
-            $('#searchInput, #fechaFiltro, #filtroEstado, #filtroPrioridad, #filtroTecnico').on('change keyup', function() {
-                aplicarFiltros();
+            // Eventos
+            $('#fechaFiltro').on('change', function() {
+                console.log('Fecha cambiada a:', $(this).val()); // Debug
+                aplicarFiltros(true);
             });
 
-            @* Inicializar la fecha con la fecha actual *@
-            var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0');
-            var yyyy = today.getFullYear();
-            today = yyyy + '-' + mm + '-' + dd;
-            $('#fechaFiltro').val(today);
+            $('#filtroEstado, #filtroPrioridad, #filtroTecnico').on('change', function() {
+                aplicarFiltros(true);
+            });
 
-            @* Aplicar filtros iniciales *@
-            aplicarFiltros();
-        });
+            // Inicialización
+            inicializarFiltros();
 
-        @* Función para eliminar incidencia *@
-        function eliminarIncidencia(id) {
-            if (confirm('¿Está seguro que desea eliminar esta incidencia?')) {
-                $.ajax({
-                    url: '@Url.Action("Delete")/' + id,
-                    type: 'POST',
-                    success: function (result) {
-                        if (result.success) {
-                            location.reload();
-                        } else {
-                            alert('Error al eliminar la incidencia');
+            // Función para eliminar incidencia
+            window.eliminarIncidencia = function(id) {
+                if (confirm('¿Está seguro que desea eliminar esta incidencia?')) {
+                    $.ajax({
+                        url: '@Url.Action("Delete")/' + id,
+                        type: 'POST',
+                        data: {
+                            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function (result) {
+                            if (result.success) {
+                                location.reload();
+                            } else {
+                                alert(result.message || 'Error al eliminar la incidencia');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            alert('Error al eliminar la incidencia: ' + error);
                         }
-                    },
-                    error: function () {
-                        alert('Error al eliminar la incidencia');
-                    }
-                });
+                    });
+                }
+            };
+
+            // Función para limpiar todos los filtros
+            function limpiarTodosFiltros() {
+                $('#fechaFiltro').val('');
+                $('#filtroEstado').val('');
+                $('#filtroPrioridad').val('');
+                $('#filtroTecnico').val('');
+                aplicarFiltros(true);
             }
-        }
+
+            // Evento para el botón de limpiar filtros
+            $('#limpiarFiltros').on('click', function() {
+                limpiarTodosFiltros();
+            });
+        });
     </script>
 }

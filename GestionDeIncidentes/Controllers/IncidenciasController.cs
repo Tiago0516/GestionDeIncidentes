@@ -8,6 +8,8 @@ using System;
 using System.Data.Entity;
 using System.Collections.Generic;
 using log4net;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.SqlServer;
 
 namespace SistemaIncidencias.Controllers
 {
@@ -28,47 +30,7 @@ namespace SistemaIncidencias.Controllers
         // GET: Muestra el listado de incidencias con filtros y paginación
         public ActionResult Index(string estado, string prioridad, string tecnico, int? page)
         {
-            try
-            {
-                _logger.Info("Accediendo al listado de incidencias");
-                // Obtiene todas las incidencias con sus relaciones
-                var incidencias = _incidenciaRepository.ObtenerTodas().AsQueryable()
-                            .Include(i => i.UsuarioReporta)
-                            .Include(i => i.TecnicoAsignado);
-
-                // Aplica filtro por estado si se especifica
-                if (!string.IsNullOrEmpty(estado))
-                {
-                    _logger.Debug($"Filtrando por estado: {estado}");
-                    incidencias = incidencias.Where(i => i.Estado == estado);
-                }
-
-                // Aplica filtro por prioridad si se especifica
-                if (!string.IsNullOrEmpty(prioridad))
-                {
-                    _logger.Debug($"Filtrando por prioridad: {prioridad}");
-                    incidencias = incidencias.Where(i => i.Prioridad == prioridad);
-                }
-
-                // Aplica filtro por técnico si se especifica
-                if (!string.IsNullOrEmpty(tecnico))
-                {
-                    _logger.Debug($"Filtrando por técnico: {tecnico}");
-                    incidencias = incidencias.Where(i => i.TecnicoAsignado.Nombre.Contains(tecnico));
-                }
-
-                // Configura la paginación
-                int pageSize = 5;
-                int pageNumber = (page ?? 1);
-
-                return View(incidencias.OrderBy(i => i.FechaCreacion).ToPagedList(pageNumber, pageSize));
-            }
-            catch (Exception ex)
-            {
-                _logger.Error($"Error al cargar la lista de incidencias: {ex.Message}", ex);
-                TempData["Error"] = "Ocurrió un error al cargar las incidencias. Por favor, inténtelo de nuevo.";
-                return RedirectToAction("Reporte");
-            }
+            return RedirectToAction("Reporte");
         }
 
         // GET: Muestra los detalles de una incidencia específica
@@ -333,7 +295,7 @@ namespace SistemaIncidencias.Controllers
         }
 
         // GET: Muestra el reporte de incidencias
-        public ActionResult Reporte(int? page)
+        public ActionResult Reporte(int? page, string fecha, string estado, string prioridad, string tecnico)
         {
             try
             {
@@ -347,12 +309,53 @@ namespace SistemaIncidencias.Controllers
                 }
 
                 var incidencias = _incidenciaRepository.ObtenerTodas()
-                    .OrderBy(i => i.FechaCreacion);
+                    .AsQueryable()
+                    .Include(i => i.UsuarioReporta)
+                    .Include(i => i.TecnicoAsignado);
 
-                if (incidencias == null)
+                // Aplicar filtros
+                if (!string.IsNullOrEmpty(fecha))
                 {
-                    throw new Exception("No se pudieron obtener las incidencias del repositorio");
+                    try
+                    {
+                        var fechaFiltro = DateTime.Parse(fecha);
+                        _logger.Info($"Fecha recibida para filtrar: {fechaFiltro:yyyy-MM-dd}");
+
+                        // Crear rango de fechas para el día completo
+                        var fechaInicio = fechaFiltro.Date;
+                        var fechaFin = fechaInicio.AddDays(1);
+
+                        incidencias = incidencias.Where(i => 
+                            i.FechaCreacion >= fechaInicio && 
+                            i.FechaCreacion < fechaFin);
+
+                        _logger.Info($"Filtro de fecha aplicado para: {fechaFiltro:yyyy-MM-dd}");
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Error($"Error al parsear la fecha: {fecha}, Error: {ex.Message}", ex);
+                        throw;
+                    }
                 }
+
+                if (!string.IsNullOrEmpty(estado))
+                {
+                    incidencias = incidencias.Where(i => i.Estado == estado);
+                }
+
+                if (!string.IsNullOrEmpty(prioridad))
+                {
+                    incidencias = incidencias.Where(i => i.Prioridad == prioridad);
+                }
+
+                if (!string.IsNullOrEmpty(tecnico))
+                {
+                    var tecnicoId = int.Parse(tecnico);
+                    incidencias = incidencias.Where(i => i.TecnicoAsignadoId == tecnicoId);
+                }
+
+                // Ordenar por fecha de creación descendente
+                incidencias = incidencias.OrderByDescending(i => i.FechaCreacion);
 
                 var pagedList = incidencias.ToPagedList(pageNumber, pageSize);
                 
