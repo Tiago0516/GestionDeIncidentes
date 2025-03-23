@@ -15,7 +15,7 @@ Sistema web para la gestión y seguimiento de incidencias técnicas, desarrollad
    git clone https://github.com/Tiago0516/GestionDeIncidentes
 
 
-2. Abrir la solución `GestionDeIncidentes.sln` en Visual Studio.
+2. Abrir la solución `SistemaIncidencias.sln` en Visual Studio.
 
 3. Restaurar los paquetes NuGet:
    - Click derecho en la solución
@@ -33,12 +33,19 @@ Sistema web para la gestión y seguimiento de incidencias técnicas, desarrollad
 ## Estructura del Proyecto
 GestionDeIncidentes/
 ├── App_Start/ # Configuración inicial de la aplicación
+
 ├── Content/ # Archivos CSS y recursos estáticos
+
 ├── Controllers/ # Controladores MVC
+
 ├── Models/ # Modelos de dominio y ViewModels
+
 ├── Repositories/ # Repositorios para acceso a datos
+
 ├── Views/ # Vistas MVC
+
 ├── Migrations/ # Migraciones de Entity Framework
+
 └── Scripts/ # Archivos JavaScript
 
 
